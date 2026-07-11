@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unsere Geschichte ❤️</title>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+padding:0;
+
+background:black;
+
+color:white;
+
+font-family:Georgia,serif;
+
+overflow:hidden;
+
+}
+
+
+
+.film{
+
+width:100vw;
+height:100vh;
+
+position:relative;
+
+}
+
+
+
+.szene{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+top:0;
+left:0;
+
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+
+text-align:center;
+
+
+opacity:0;
+
+transition:opacity 2s ease;
+
+
+pointer-events:none;
+
+}
+
+
+
+.szene.aktiv{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+
+
+
+
+h1{
+
+font-size:clamp(40px,8vw,80px);
+
+}
+
+
+
+h2{
+
+font-size:clamp(30px,5vw,50px);
+
+}
+
+
+
+p{
+
+font-size:clamp(18px,3vw,32px);
+
+max-width:1000px;
+
+padding:0 20px;
+
+line-height:1.5;
+
+}
+
+
+
+
+
+button{
+
+
+padding:20px 60px;
+
+
+font-size:clamp(20px,4vw,35px);
+
+
+border:none;
+
+
+border-radius:50px;
+
+
+cursor:pointer;
+
+
+background:white;
+
+
+color:black;
+
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.1);
+
+}
+
+
+
+
+
+.bildbereich{
+
+
+width:90vw;
+
+height:70vh;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+
+.bildbereich img{
+
+
+max-width:100%;
+
+max-height:100%;
+
+
+object-fit:contain;
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+.zoom{
+
+animation:kamera 8s ease forwards;
+
+}
+
+
+
+@keyframes kamera{
+
+
+from{
+
+transform:scale(1);
+
+}
+
+
+to{
+
+transform:scale(1.08);
+
+}
+
+
+}
+
+
+
+
+
+.text{
+
+
+font-size:clamp(22px,4vw,40px);
+
+margin-top:20px;
+
+
+}
+
+
+
+
+.umschlag{
+
+
+font-size:120px;
+
+cursor:pointer;
+
+animation:puls 2s infinite;
+
+
+}
+
+
+
+@keyframes puls{
+
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+
+}
+
+
+
+
+
+.brief{
+
+
+position:absolute;
+
+
+background:white;
+
+
+color:black;
+
+
+width:90vw;
+
+
+max-width:700px;
+
+
+max-height:80vh;
+
+
+overflow:auto;
+
+
+padding:40px;
+
+
+border-radius:25px;
+
+
+opacity:0;
+
+
+transform:translateY(400px);
+
+
+transition:2s;
+
+
+}
+
+
+
+
+.brief.offen{
+
+
+opacity:1;
+
+
+transform:translateY(0);
+
+
+}
+
+
+
+
+.brief p{
+
+
+font-size:22px;
+
+
+line-height:1.5;
+
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<audio id="musik" loop>
+
+<source src="romantisch.mp3" type="audio/mp3">
+
+</audio>
+
+
+<div class="film">
+
+<!-- START SZENE -->
+
+<section class="szene aktiv" id="start">
+
+
+<h1>
+❤️ Für Askim ❤️
+</h1>
+
+
+<p>
+Eine kleine Geschichte über uns...
+</p>
+
+
+<button onclick="startFilm()">
+
+▶ Film starten
+
+</button>
+
+
+</section>
+
+
+
+
+
+<!-- BILDER FILM -->
+
+<section class="szene" id="filmSzene">
+
+
+<div class="bildbereich">
+
+<img id="bild" src="">
+
+
+</div>
+
+
+<div class="text" id="bildText"></div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ZUKUNFT -->
+
+<section class="szene" id="zukunft">
+
+
+<h1>
+Unsere Zukunft ❤️
+</h1>
+
+
+<p>
+
+Ich freue mich auf alle Momente,
+die noch vor uns liegen.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- BRIEF -->
+
+<section class="szene" id="briefSzene">
+
+
+<div class="umschlag" onclick="briefOeffnen()">
+
+💌
+
+</div>
+
+
+<p>
+
+Öffne den Brief ❤️
+
+</p>
+
+
+
+
+<div class="brief" id="brief">
+
+
+<h2>
+
+Mein Schatz ❤️
+
+</h2>
+
+
+
+<p>
+
+Ich weiß gar nicht, wo ich anfangen soll...
+
+Diese letzten 12 Monate mit dir waren die schönsten,
+die ich erleben durfte.
+
+
+<br><br>
+
+
+Ich habe diesen kleinen Film gemacht,
+weil ich dir zeigen wollte,
+dass jeder einzelne Moment mit dir für mich etwas bedeutet.
+
+
+<br><br>
+
+
+Jedes Lachen, jede Umarmung,
+jedes Gespräch und jede Erinnerung
+sind Dinge, die ich niemals vergessen möchte.
+
+
+<br><br>
+
+
+Ich weiß nicht, was die Zukunft alles für uns bereithält,
+
+aber ich weiß, dass ich jeden weiteren Schritt
+gerne mit dir gehen möchte.
+
+
+<br><br>
+
+
+Ich möchte noch viele Erinnerungen mit dir sammeln,
+noch viele Orte sehen und noch viele schöne Momente
+mit dir erleben.
+
+
+<br><br>
+
+
+Ich liebe dich mehr, als Worte es beschreiben können. ❤️
+
+
+<br><br>
+
+
+Für immer dein Markov ❤️
+
+
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+const bilder = [
+
+
+"bild6.jpeg",
+"bild5.jpeg",
+"bild10.jpeg",
+"bild12.jpeg",
+"bild13.jpeg",
+"bild14.jpeg",
+"bild18.jpeg",
+"bild19.jpeg",
+"bild23.jpeg",
+"bild25.jpeg",
+"bild26.jpeg",
+"bild27.jpeg",
+"bild28.jpeg",
+"bild29.jpeg",
+"bild30.jpeg",
+"bild31.jpeg",
+"bild32.jpeg",
+"bild33.jpeg",
+"bild34.jpeg",
+"bild35.jpeg",
+"bild36.jpeg",
+"bild37.jpeg",
+"bild39.jpeg",
+"bild40.jpeg",
+"bild41.jpeg",
+"bild44.jpeg",
+"bild45.jpeg",
+"bild47.jpeg",
+"bild48.jpeg",
+"bild49.jpeg",
+"bild50.jpeg",
+"bild51.jpeg",
+"bild52.jpeg",
+"bild53.jpeg",
+"bild54.jpeg",
+"bild55.jpeg",
+"bild56.jpeg",
+"bild57.jpeg",
+"bild58.jpeg",
+"bild59.jpeg",
+"bild60.jpeg",
+"bild61.jpeg",
+"bild62.jpeg",
+"bild63.jpeg"
+
+
+];
+
+
+
+
+const texte = [
+
+"Der Anfang von uns ❤️",
+
+"Der Moment, in dem unsere Geschichte begann",
+
+"Unsere ersten gemeinsamen Erinnerungen",
+
+"Jeder Augenblick mit dir wurde besonders",
+
+"Mit dir fühlt sich selbst ein normaler Tag wunderschön an",
+
+"Die ersten Momente, die nur uns gehören",
+
+"Unsere kleinen Abenteuer zusammen",
+
+"Jedes Lachen mit dir ist eine Erinnerung wert",
+
+"Du machst mein Leben schöner",
+
+"Einfach wir zwei ❤️",
+
+"Die schönsten Momente sind die mit dir",
+
+"Mit dir kann ich über alles lachen",
+
+"Jede Umarmung von dir bedeutet mir die Welt",
+
+"Du bist mein Lieblingsmensch",
+
+"Unsere Zeit zusammen ist unbezahlbar",
+
+"Jeder Blick von dir zaubert mir ein Lächeln",
+
+"Die Momente, die ich niemals vergessen werde",
+
+"Mit dir fühlt sich alles richtig an",
+
+"Unsere Geschichte schreibt sich jeden Tag weiter",
+
+"Jeder Tag mit dir ist ein Geschenk",
+
+"Ich liebe die kleinen Dinge mit dir",
+
+"Du bist der Mensch, mit dem ich alles teilen möchte",
+
+"Unsere Erinnerungen bleiben für immer",
+
+"Mit dir habe ich die schönsten Tage erlebt",
+
+"Du gibst mir ein Gefühl von Zuhause",
+
+"Unsere gemeinsamen Erlebnisse bedeuten mir alles",
+
+"Ich bin dankbar für jede Sekunde mit dir",
+
+"Du bringst mich jeden Tag zum Lächeln",
+
+"Unsere Liebe wächst mit jedem Moment",
+
+"Ich freue mich auf alles, was noch kommt",
+
+"Noch viele Abenteuer warten auf uns",
+
+"Noch viele Orte, die wir zusammen entdecken",
+
+"Noch viele Lacher, die wir teilen werden",
+
+"Noch viele Erinnerungen, die wir sammeln",
+
+"Unsere Zukunft beginnt mit uns ❤️",
+
+"Ich möchte noch viele Jahre an deiner Seite sein",
+
+"Du bist mein warum",
+
+"Mit dir möchte ich meine Zukunft verbringen",
+
+"Alles, was zählt, bist du und ich",
+
+"Unsere Geschichte ist erst der Anfang",
+
+"Für immer wir ❤️"
+
+];
+
+
+
+
+
+
+let bildIndex = 0;
+
+
+const bild = document.getElementById("bild");
+
+const bildText = document.getElementById("bildText");
+
+
+
+const szenen =
+document.querySelectorAll(".szene");
+
+
+
+
+
+
+
+function wechselSzene(von,zur){
+
+szenen[von].classList.remove("aktiv");
+
+szenen[zur].classList.add("aktiv");
+
+}
+
+
+
+
+
+function startFilm(){
+
+
+document.getElementById("musik").play();
+
+
+wechselSzene(0,1);
+
+
+zeigeBild();
+
+
+}
+
+
+
+
+
+
+function zeigeBild(){
+
+
+
+bild.classList.remove("zoom");
+
+
+void bild.offsetWidth;
+
+
+
+bild.src=bilder[bildIndex];
+
+
+
+bild.classList.add("zoom");
+
+
+
+bildText.innerHTML =
+texte[bildIndex % texte.length];
+
+
+
+
+setTimeout(()=>{
+
+
+bildIndex++;
+
+
+
+if(bildIndex < bilder.length){
+
+
+zeigeBild();
+
+
+}
+
+else{
+
+
+filmEnde();
+
+
+}
+
+
+
+},8000);
+
+
+
+}
+
+
+
+
+
+
+
+function filmEnde(){
+
+
+wechselSzene(1,2);
+
+
+
+setTimeout(()=>{
+
+
+wechselSzene(2,3);
+
+
+
+},12000);
+
+
+
+}
+
+
+
+
+
+
+function briefOeffnen(){
+
+
+document
+.getElementById("brief")
+.classList.add("offen");
+
+
+herzenStarten();
+
+
+}
+
+
+
+/* =========================
+   HERZEN
+========================= */
+
+
+function herzenStarten(){
+
+
+for(let i=0;i<25;i++){
+
+
+let herz=document.createElement("div");
+
+
+herz.innerHTML="❤️";
+
+
+herz.style.position="absolute";
+
+herz.style.bottom="-50px";
+
+
+herz.style.left=Math.random()*100+"vw";
+
+
+herz.style.fontSize=
+(20+Math.random()*40)+"px";
+
+
+herz.style.animation=
+"hoch 6s linear forwards";
+
+
+herz.style.animationDelay=
+Math.random()*3+"s";
+
+
+
+document.body.appendChild(herz);
+
+
+
+setTimeout(()=>{
+
+herz.remove();
+
+},9000);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<style>
+
+
+/* Herz Animation */
+
+
+@keyframes hoch{
+
+
+from{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+
+
+to{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+
+
+}
+
+
+
+
+
+
+/* Abspann */
+
+
+.abspann{
+
+
+font-size:clamp(30px,5vw,60px);
+
+
+line-height:1.8;
+
+
+animation:einblenden 4s;
+
+
+}
+
+
+
+
+
+@keyframes einblenden{
+
+
+from{
+
+opacity:0;
+
+}
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- ENDE -->
+
+<section class="szene" id="ende">
+
+
+<div class="abspann">
+
+
+❤️ Askim & Markov ❤️
+
+
+<br><br>
+
+
+Unsere Geschichte
+
+
+<br><br>
+
+
+Danke für jeden Moment
+
+
+<br><br>
+
+
+Fortsetzung folgt...
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<script>
+
+
+/*
+  Damit Musik auf Handy
+  nach der ersten Berührung
+  funktioniert
+*/
+
+
+document.body.addEventListener("click",()=>{
+
+
+let musik=document.getElementById("musik");
+
+
+if(musik){
+
+musik.play();
+
+}
+
+
+},{once:true});
+
+
+
+
+
+</script>
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
